@@ -1,0 +1,48 @@
+name: data
+description: Data layer
+publish_to: 'none'
+version: 0.0.1
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Clean architecture modules
+  domain:
+    path: ../domain
+  # Core
+  rxdart: ^0.28.0
+  collection: any
+  # Network
+  dio: ^5.8.0+1
+  json_annotation: ^4.9.0
+  retrofit: ^4.4.2
+  connectivity_plus: ^6.1.4
+  # Debug View
+  chili_debug_view: ^1.1.0
+  # Firebase
+  firebase_analytics: ^11.5.0
+  firebase_remote_config: ^5.4.5
+  # Storage:
+  shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
+  # Logging
+  fimber: ^0.7.0
+  # Device
+  package_info_plus: ^8.3.0
+  version: ^3.0.2
+
+dev_dependencies:
+  # Tests
+  flutter_test:
+    sdk: flutter
+  test: any
+  # Code Linting
+  flutter_lints: ^6.0.0
+  # Codegen
+  build_runner: ^2.5.2
+  json_serializable: ^6.9.5
+  retrofit_generator: ^9.2.0
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759960048223",
+    "project_id": "catsounds-b4a8c",
+    "storage_bucket": "catsounds-b4a8c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759960048223:android:a205a86c2c9dd4a3c741ea",
+        "android_client_info": {
+          "package_name": "chi.cat.sounds"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSN9MdfJ5bFtfmup_1XqzIUE8AKrKtVMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

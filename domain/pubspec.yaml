@@ -1,0 +1,17 @@
+name: domain
+description: Domain layer
+publish_to: 'none'
+version: 0.0.1
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Core
+  equatable: ^2.0.7
+
+dev_dependencies:
+  # Code Linting
+  flutter_lints: ^6.0.0

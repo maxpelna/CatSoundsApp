@@ -1,0 +1,65 @@
+name: presentation
+description: Presentation layer
+version: 0.0.1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Clean architecture modules
+  domain:
+    path: ../domain
+  # Core
+  equatable: ^2.0.7
+  rxdart: ^0.28.0
+  collection: any
+  async: ^2.13.0
+  # State management
+  flutter_bloc: ^9.1.1
+  bloc_concurrency: ^0.3.0
+  delayed_result:
+    git:
+      url: https://github.com/ChiliLabs/dart-delayed-result.git
+      ref: main
+  # DI
+  get_it: ^8.0.3
+  # Firebase
+  firebase_analytics: ^11.5.0
+  # Coordinator
+  go_router: ^15.2.3
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+  # Logging
+  fimber: ^0.7.0
+  # Accessibility
+  chili_text_scale_factor:
+    git:
+      url: https://github.com/ChiliLabs/chili-text-scale-factor.git
+      ref: main
+  # Debug View
+  chili_debug_view: ^1.1.0
+  # Web
+  url_launcher: ^6.3.1
+  # UI
+  flutter_svg: ^2.2.0
+  fluttertoast: ^8.2.12
+  flash: ^3.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: any
+  # Code Linting
+  flutter_lints: ^6.0.0
+  # Codegen
+  go_router_builder: any
+  build_runner: ^2.5.2
+  flutter_gen_runner: ^5.10.0
+
+flutter:
+  uses-material-design: true

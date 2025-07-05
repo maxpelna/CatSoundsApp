@@ -1,0 +1,135 @@
+name: cat_sounds
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+  flutter: 3.32.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Clean architecture modules
+  domain:
+    path: ./domain
+  data:
+    path: ./data
+  presentation:
+    path: ./presentation
+  # Core
+  equatable: ^2.0.7
+  rxdart: ^0.28.0
+  collection: any
+  async: ^2.13.0
+  # State management
+  flutter_bloc: ^9.1.1
+  bloc_concurrency: ^0.3.0
+  delayed_result:
+    git:
+      url: https://github.com/ChiliLabs/dart-delayed-result.git
+      ref: main
+  # DI
+  get_it: ^8.0.3
+  # Network
+  dio: ^5.8.0+1
+  json_annotation: ^4.9.0
+  retrofit: ^4.4.2
+  connectivity_plus: ^6.1.4
+  # Firebase
+  firebase_core: ^3.14.0
+  firebase_crashlytics: ^4.3.7
+  firebase_analytics: ^11.5.0
+  firebase_remote_config: ^5.4.5
+  # Coordinator
+  go_router: ^15.2.3
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+  # Storage:
+  shared_preferences: ^2.5.3
+  flutter_secure_storage: ^9.2.4
+  # Logging
+  fimber: ^0.7.0
+  # Accessibility
+  chili_text_scale_factor:
+    git:
+      url: https://github.com/ChiliLabs/chili-text-scale-factor.git
+      ref: main
+  # Debug View
+  chili_debug_view: ^1.1.0
+  # Web
+  url_launcher: ^6.3.1
+  # Device
+  package_info_plus: ^8.3.0
+  version: ^3.0.2
+  # UI
+  flutter_svg: ^2.2.0
+  fluttertoast: ^8.2.12
+  flash: ^3.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: any
+  bloc_test: ^10.0.0
+  golden_toolkit: ^0.15.0
+  # Code Linting
+  flutter_lints: ^6.0.0
+  # Codegen
+  flutter_gen_runner: ^5.10.0
+  build_runner: ^2.5.2
+  json_serializable: ^6.9.5
+  retrofit_generator: ^9.2.0
+  # Splash screen
+  flutter_native_splash: ^2.4.6
+  # App icon
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  # This package generates native code to customize app icon.
+  # To generate new icon run `flutter pub run flutter_launcher_icons`.
+  android: true
+  adaptive_icon_background: "resources/launcher/android_app_icon_background.png"
+  adaptive_icon_foreground: "resources/launcher/android_app_icon_foreground.png"
+  remove_alpha_ios: true
+  ios: true
+  image_path: "resources/launcher/ios_app_icon.png"
+
+flutter_native_splash:
+  # This package generates native code to customize Flutter's default white native splash screen
+  # with background color and splash image.
+  # Customize the parameters below, and run the following command in the terminal:
+  # flutter pub run flutter_native_splash:create
+  # To restore Flutter's default white splash screen, run the following command in the terminal:
+  # flutter pub run flutter_native_splash:remove
+  color: "#FFFFFF"
+  color_dark: "#FFFFFF"
+  image: "resources/splash/splash.png"
+  android: true
+  ios: true
+  fullscreen: true
+  android_gravity: center
+  ios_content_mode: center
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - resources/assets/icons/
+    - resources/assets/images/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: resources/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: resources/fonts/OpenSans-Medium.ttf
+          weight: 500
+        - asset: resources/fonts/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: resources/fonts/OpenSans-Bold.ttf
+          weight: 700
+
+flutter_gen:
+  output: presentation/lib/generated/assets/

@@ -1,0 +1,7 @@
+arb-dir: resources/translations
+output-dir: presentation/lib/generated/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.g.dart
+nullable-getter: false
+untranslated-messages-file: l10n_errors.txt
+synthetic-package: false
