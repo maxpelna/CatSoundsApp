@@ -2,26 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:presentation/coordinator/widget/app_flow_listener_page.dart';
-import 'package:presentation/feature/auth/login/widget/login_page.dart';
-import 'package:presentation/feature/home/design_system/widget/design_system_page.dart';
+import 'package:presentation/feature/home/sound_pad/widget/sound_pad_page.dart';
+import 'package:presentation/splash/widget/splash_page.dart';
 
 part 'app_routes.g.dart';
 
-@TypedGoRoute<AuthStateListenerRoute>(path: '/')
-final class AuthStateListenerRoute extends GoRouteData with _$AuthStateListenerRoute {
-  const AuthStateListenerRoute();
+@TypedGoRoute<SplashRoute>(path: '/')
+final class SplashRoute extends GoRouteData with _$SplashRoute {
+  const SplashRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => AppFlowListenerPage.withBloc();
-}
-
-@TypedGoRoute<LoginPageRoute>(path: '/login')
-final class LoginPageRoute extends GoRouteData with _$LoginPageRoute {
-  const LoginPageRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) => const LoginPage();
+  Widget build(BuildContext context, GoRouterState state) => SplashPage();
 }
 
 @TypedGoRoute<HomePageRoute>(path: '/home')
@@ -29,5 +20,5 @@ final class HomePageRoute extends GoRouteData with _$HomePageRoute {
   const HomePageRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const DesignSystemPage();
+  Widget build(BuildContext context, GoRouterState state) => const SoundPadPage();
 }

@@ -1,4 +1,4 @@
-part of 'app_flow_cubit.dart';
+import 'package:equatable/equatable.dart';
 
 sealed class AppFlowState extends Equatable {
   const AppFlowState();
@@ -9,10 +9,6 @@ sealed class AppFlowState extends Equatable {
 
 final class AppLoadingState extends AppFlowState {
   const AppLoadingState();
-}
-
-final class NotAuthenticatedState extends AppFlowState {
-  const NotAuthenticatedState();
 }
 
 final class AuthenticatedState extends AppFlowState {

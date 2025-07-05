@@ -7,10 +7,6 @@ sealed class AppBlocEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-final class ListenToConnectionStatusEvent extends AppBlocEvent {
-  const ListenToConnectionStatusEvent();
-}
-
-final class ListenUpdateConfigStatusEvent extends AppBlocEvent {
-  const ListenUpdateConfigStatusEvent();
+final class StartAppEvent extends AppBlocEvent {
+  const StartAppEvent();
 }

@@ -6,45 +6,16 @@ part of 'app_routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [
-  $authStateListenerRoute,
-  $loginPageRoute,
-  $homePageRoute,
-];
+List<RouteBase> get $appRoutes => [$splashRoute, $homePageRoute];
 
-RouteBase get $authStateListenerRoute =>
-    GoRouteData.$route(path: '/', factory: _$AuthStateListenerRoute._fromState);
+RouteBase get $splashRoute =>
+    GoRouteData.$route(path: '/', factory: _$SplashRoute._fromState);
 
-mixin _$AuthStateListenerRoute on GoRouteData {
-  static AuthStateListenerRoute _fromState(GoRouterState state) =>
-      const AuthStateListenerRoute();
+mixin _$SplashRoute on GoRouteData {
+  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
   @override
   String get location => GoRouteData.$location('/');
-
-  @override
-  void go(BuildContext context) => context.go(location);
-
-  @override
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  @override
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  @override
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $loginPageRoute =>
-    GoRouteData.$route(path: '/login', factory: _$LoginPageRoute._fromState);
-
-mixin _$LoginPageRoute on GoRouteData {
-  static LoginPageRoute _fromState(GoRouterState state) =>
-      const LoginPageRoute();
-
-  @override
-  String get location => GoRouteData.$location('/login');
 
   @override
   void go(BuildContext context) => context.go(location);

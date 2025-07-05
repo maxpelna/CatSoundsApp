@@ -1,6 +1,7 @@
 import 'package:domain/locale/model/app_language.dart';
 import 'package:domain/theme/model/app_theme_mode.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:presentation/design/src/theme/design_system_theme_data.dart';
 
 // MARK: Callbacks.
@@ -23,9 +24,12 @@ typedef LocaleCallback = Function(Locale locale);
 
 typedef LocalizedWidgetBuilder = Widget Function(Locale? locale);
 
-typedef ThemedWidgetBuilder = Widget Function(
-  DesignSystemThemeData? themeData,
-  Brightness brightness,
-);
+typedef ThemedWidgetBuilder =
+    Widget Function(
+      DesignSystemThemeData? themeData,
+      Brightness brightness,
+    );
 
 typedef BoolWidgetBuilder = Widget Function(bool value);
+
+typedef RouterWidgetBuilder = Widget Function(GoRouter router);

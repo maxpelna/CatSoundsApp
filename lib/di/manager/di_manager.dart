@@ -12,9 +12,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:presentation/di/di.dart';
 
 Future<void> configureDependencies() async {
-  const enableDebugView = EnvConfig.enableDebugView;
   const isDevEnv = EnvConfig.isDevEnv;
-  const apiBaseUrl = EnvConfig.apiBaseUrl;
 
   final analytics = await _initAnalytics();
   final remoteConfig = await _initRemoteConfig(isDevEnv);
@@ -27,9 +25,7 @@ Future<void> configureDependencies() async {
   const storageModule = StorageModule();
   final networkModule = NetworkModule(
     remoteConfig: remoteConfig,
-    apiBaseUrl: apiBaseUrl,
     isDevEnv: isDevEnv,
-    enableDebugView: enableDebugView,
   );
   const lateModule = LateModule();
 

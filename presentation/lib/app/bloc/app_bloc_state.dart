@@ -1,26 +1,20 @@
 part of 'app_bloc.dart';
 
 final class AppBlocState extends Equatable {
-  final DelayedResult<bool> isConnected;
-  final DelayedResult<UpdateConfig> updateConfig;
+  final AppFlowState appFlowState;
 
   const AppBlocState({
-    required this.isConnected,
-    required this.updateConfig,
+    required this.appFlowState,
   });
 
   AppBlocState copyWith({
-    DelayedResult<bool>? isConnected,
-    DelayedResult<UpdateConfig>? updateConfig,
-  }) =>
-      AppBlocState(
-        isConnected: isConnected ?? this.isConnected,
-        updateConfig: updateConfig ?? this.updateConfig,
-      );
+    AppFlowState? appFlowState,
+  }) => AppBlocState(
+    appFlowState: appFlowState ?? this.appFlowState,
+  );
 
   @override
   List<Object?> get props => [
-        isConnected,
-        updateConfig,
-      ];
+    appFlowState,
+  ];
 }

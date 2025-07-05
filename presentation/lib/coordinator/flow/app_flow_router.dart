@@ -24,7 +24,7 @@ final class AppFlowRouter {
 
       Fimber.e('Failed to navigate to screen: $pathName', ex: state.error);
     },
-    initialLocation: const AuthStateListenerRoute().location,
+    initialLocation: const SplashRoute().location,
     observers: [
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
     ],
