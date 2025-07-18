@@ -1,4 +1,6 @@
 PODS:
+  - audio_analyzer (0.0.1):
+    - Flutter
   - audio_session (0.0.1):
     - Flutter
   - connectivity_plus (0.0.1):
@@ -176,6 +178,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - audio_analyzer (from `.symlinks/plugins/audio_analyzer/ios`)
   - audio_session (from `.symlinks/plugins/audio_session/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
@@ -216,6 +219,8 @@ SPEC REPOS:
     - PromisesSwift
 
 EXTERNAL SOURCES:
+  audio_analyzer:
+    :path: ".symlinks/plugins/audio_analyzer/ios"
   audio_session:
     :path: ".symlinks/plugins/audio_session/ios"
   connectivity_plus:
@@ -252,6 +257,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  audio_analyzer: fa60d2132d851a00c9555c16f7a94e735d478691
   audio_session: 9bb7f6c970f21241b19f5a3658097ae459681ba0
   connectivity_plus: cb623214f4e1f6ef8fe7403d580fdad517d2f7dd
   Firebase: 3435bc66b4d494c2f22c79fd3aae4c1db6662327

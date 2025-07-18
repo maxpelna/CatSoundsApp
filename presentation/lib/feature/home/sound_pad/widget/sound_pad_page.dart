@@ -1,12 +1,16 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:audio_analyzer/audio_analyzer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:presentation/design/src/constants/design_system_constants.dart';
 import 'package:presentation/feature/home/sound_pad/widget/sound_pad_container.dart';
 import 'package:presentation/utils/extension/build_context_extension.dart';
 import 'package:rive/rive.dart';
+import 'package:wave_blob/wave_blob.dart';
 
 final class SoundPadPage extends StatefulWidget {
   const SoundPadPage({super.key});
@@ -18,8 +22,13 @@ final class SoundPadPage extends StatefulWidget {
 final class _SoundPadPageState extends State<SoundPadPage> {
   late final RiveAnimationController _controller;
   late final AudioPlayer _player;
+  late final AudioAnalyzer _analyzer;
 
   var _activeSound = 0;
+  var _amplitude = 0;
+  var _tickIndex = 0;
+
+  Timer? _tickTimer;
 
   @override
   void initState() {
@@ -29,6 +38,7 @@ final class _SoundPadPageState extends State<SoundPadPage> {
       autoplay: false,
     );
     _player = AudioPlayer();
+    _analyzer = AudioAnalyzer();
   }
 
   @override
@@ -39,17 +49,37 @@ final class _SoundPadPageState extends State<SoundPadPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(width: double.infinity),
-          SizedBox(
-            width: context.totalWidth,
-            height: context.totalHeight / 3,
-            child: RiveAnimation.asset(
-              context.assets.animations.meow,
-              stateMachines: ['State Machine 1'],
-              fit: BoxFit.fitWidth,
-              controllers: [_controller],
-              onInit: (_) => setState(() {}),
-              isTouchScrollEnabled: true,
-            ),
+          Stack(
+            children: [
+              SizedBox(
+                width: context.totalWidth,
+                height: context.totalHeight / 3,
+                child: WaveBlob(
+                  amplitude: _amplitude.toDouble(),
+                  blobCount: 3,
+                  circleColors: [
+                    Colors.transparent,
+                    Colors.transparent,
+                  ],
+                  colors: [
+                    Colors.purple.withValues(alpha: 0.4),
+                    Colors.purple.withValues(alpha: 0.4),
+                    Colors.purple.withValues(alpha: 0.4),
+                  ],
+                  scale: _amplitude == 0 ? 0 : ((_amplitude.toDouble() / 10)).clamp(0, 1.5),
+                  speed: _amplitude == 0 ? 10 : 100,
+                  autoScale: false,
+                  child: RiveAnimation.asset(
+                    context.assets.animations.meow,
+                    stateMachines: ['State Machine 1'],
+                    fit: BoxFit.fitWidth,
+                    controllers: [_controller],
+                    onInit: (_) => setState(() {}),
+                    isTouchScrollEnabled: true,
+                  ),
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: Padding(
@@ -120,6 +150,7 @@ final class _SoundPadPageState extends State<SoundPadPage> {
   void dispose() {
     _controller.dispose();
     _player.dispose();
+    _tickTimer?.cancel();
     super.dispose();
   }
 
@@ -161,13 +192,57 @@ final class _SoundPadPageState extends State<SoundPadPage> {
 
     await _player.setUrl('asset:$audio');
     await _player.setLoopMode(LoopMode.off);
-    await _player.play();
+
     final duration = _player.duration;
+    _startWaveAnimation(audio, duration: duration);
+
+    await _player.play();
 
     _cancelActiveSound(
       duration: duration,
       playingNumber: number,
     );
+  }
+
+  void _startWaveAnimation(String audio, {Duration? duration}) async {
+    _tickIndex = 0;
+    final file = await copyAssetToTempFile(
+      audio,
+      'temp_audio.mp3',
+    );
+    final unwrappedDuration = duration;
+    if (unwrappedDuration == null) return;
+
+    final amplitudes = await _analyzer.getAmplitudes(file.path);
+    print(amplitudes);
+
+    final tickDuration = Duration(
+      milliseconds: (unwrappedDuration.inMilliseconds / amplitudes.length).round(),
+    );
+
+    _tickTimer?.cancel();
+    _tickTimer = Timer.periodic(tickDuration, (timer) {
+      if (amplitudes.length == _tickIndex) {
+        setState(() {
+          _amplitude = 0;
+        });
+        return;
+      }
+
+      if (!_player.playing || _activeSound == 0) {
+        timer.cancel();
+        return;
+      }
+
+      if (mounted) {
+        setState(() {
+          _amplitude = amplitudes.isNotEmpty ? amplitudes[_tickIndex] : 0;
+          _tickIndex += 1;
+        });
+      }
+
+      print(_amplitude);
+    });
   }
 
   void _cancelActiveSound({
@@ -185,4 +260,13 @@ final class _SoundPadPageState extends State<SoundPadPage> {
       }
     }
   }
+}
+
+Future<File> copyAssetToTempFile(String assetPath, String filename) async {
+  final byteData = await rootBundle.load(assetPath);
+  final tempDir = await getTemporaryDirectory();
+  final file = File('${tempDir.path}/$filename');
+  await file.writeAsBytes(byteData.buffer.asUint8List());
+
+  return file;
 }
