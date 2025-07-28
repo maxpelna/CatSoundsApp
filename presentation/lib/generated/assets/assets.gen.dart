@@ -39,51 +39,126 @@ class $ResourcesAssetsAnimationsGen {
   /// File path: resources/assets/animations/meow.riv
   String get meow => 'resources/assets/animations/meow.riv';
 
+  /// File path: resources/assets/animations/splash.json
+  String get splash => 'resources/assets/animations/splash.json';
+
   /// List of all assets
-  List<String> get values => [meow];
+  List<String> get values => [meow, splash];
 }
 
 class $ResourcesAssetsAudioGen {
   const $ResourcesAssetsAudioGen();
 
-  /// File path: resources/assets/audio/number_1.wav
-  String get number1 => 'resources/assets/audio/number_1.wav';
+  /// File path: resources/assets/audio/anger_1.mp3
+  String get anger1 => 'resources/assets/audio/anger_1.mp3';
 
-  /// File path: resources/assets/audio/number_2.mp3
-  String get number2 => 'resources/assets/audio/number_2.mp3';
+  /// File path: resources/assets/audio/anger_2.mp3
+  String get anger2 => 'resources/assets/audio/anger_2.mp3';
 
-  /// File path: resources/assets/audio/number_3.mp3
-  String get number3 => 'resources/assets/audio/number_3.mp3';
+  /// File path: resources/assets/audio/anger_3.mp3
+  String get anger3 => 'resources/assets/audio/anger_3.mp3';
 
-  /// File path: resources/assets/audio/number_4.mp3
-  String get number4 => 'resources/assets/audio/number_4.mp3';
+  /// File path: resources/assets/audio/anger_4.mp3
+  String get anger4 => 'resources/assets/audio/anger_4.mp3';
 
-  /// File path: resources/assets/audio/number_5.mp3
-  String get number5 => 'resources/assets/audio/number_5.mp3';
+  /// File path: resources/assets/audio/anger_5.mp3
+  String get anger5 => 'resources/assets/audio/anger_5.mp3';
 
-  /// File path: resources/assets/audio/number_6.mp3
-  String get number6 => 'resources/assets/audio/number_6.mp3';
+  /// File path: resources/assets/audio/anger_6.mp3
+  String get anger6 => 'resources/assets/audio/anger_6.mp3';
 
-  /// File path: resources/assets/audio/number_7.mp3
-  String get number7 => 'resources/assets/audio/number_7.mp3';
+  /// File path: resources/assets/audio/anger_7.mp3
+  String get anger7 => 'resources/assets/audio/anger_7.mp3';
 
-  /// File path: resources/assets/audio/number_8.mp3
-  String get number8 => 'resources/assets/audio/number_8.mp3';
+  /// File path: resources/assets/audio/anger_8.mp3
+  String get anger8 => 'resources/assets/audio/anger_8.mp3';
 
-  /// File path: resources/assets/audio/number_9.mp3
-  String get number9 => 'resources/assets/audio/number_9.mp3';
+  /// File path: resources/assets/audio/anger_9.mp3
+  String get anger9 => 'resources/assets/audio/anger_9.mp3';
+
+  /// File path: resources/assets/audio/love_1.mp3
+  String get love1 => 'resources/assets/audio/love_1.mp3';
+
+  /// File path: resources/assets/audio/love_2.mp3
+  String get love2 => 'resources/assets/audio/love_2.mp3';
+
+  /// File path: resources/assets/audio/love_3.mp3
+  String get love3 => 'resources/assets/audio/love_3.mp3';
+
+  /// File path: resources/assets/audio/love_4.mp3
+  String get love4 => 'resources/assets/audio/love_4.mp3';
+
+  /// File path: resources/assets/audio/love_5.mp3
+  String get love5 => 'resources/assets/audio/love_5.mp3';
+
+  /// File path: resources/assets/audio/love_6.mp3
+  String get love6 => 'resources/assets/audio/love_6.mp3';
+
+  /// File path: resources/assets/audio/love_7.mp3
+  String get love7 => 'resources/assets/audio/love_7.mp3';
+
+  /// File path: resources/assets/audio/love_8.mp3
+  String get love8 => 'resources/assets/audio/love_8.mp3';
+
+  /// File path: resources/assets/audio/love_9.mp3
+  String get love9 => 'resources/assets/audio/love_9.mp3';
+
+  /// File path: resources/assets/audio/meow_1.mp3
+  String get meow1 => 'resources/assets/audio/meow_1.mp3';
+
+  /// File path: resources/assets/audio/meow_2.mp3
+  String get meow2 => 'resources/assets/audio/meow_2.mp3';
+
+  /// File path: resources/assets/audio/meow_3.mp3
+  String get meow3 => 'resources/assets/audio/meow_3.mp3';
+
+  /// File path: resources/assets/audio/meow_4.mp3
+  String get meow4 => 'resources/assets/audio/meow_4.mp3';
+
+  /// File path: resources/assets/audio/meow_5.mp3
+  String get meow5 => 'resources/assets/audio/meow_5.mp3';
+
+  /// File path: resources/assets/audio/meow_6.mp3
+  String get meow6 => 'resources/assets/audio/meow_6.mp3';
+
+  /// File path: resources/assets/audio/meow_7.mp3
+  String get meow7 => 'resources/assets/audio/meow_7.mp3';
+
+  /// File path: resources/assets/audio/meow_8.mp3
+  String get meow8 => 'resources/assets/audio/meow_8.mp3';
+
+  /// File path: resources/assets/audio/meow_9.mp3
+  String get meow9 => 'resources/assets/audio/meow_9.mp3';
 
   /// List of all assets
   List<String> get values => [
-    number1,
-    number2,
-    number3,
-    number4,
-    number5,
-    number6,
-    number7,
-    number8,
-    number9,
+    anger1,
+    anger2,
+    anger3,
+    anger4,
+    anger5,
+    anger6,
+    anger7,
+    anger8,
+    anger9,
+    love1,
+    love2,
+    love3,
+    love4,
+    love5,
+    love6,
+    love7,
+    love8,
+    love9,
+    meow1,
+    meow2,
+    meow3,
+    meow4,
+    meow5,
+    meow6,
+    meow7,
+    meow8,
+    meow9,
   ];
 }
 

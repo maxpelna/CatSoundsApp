@@ -10,4 +10,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get placeholder => 'Test in English';
+
+  @override
+  String get sound_pad_meow_type => 'Meow';
+
+  @override
+  String get sound_pad_love_type => 'Love';
+
+  @override
+  String get sound_pad_anger_type => 'Anger';
+
+  @override
+  String get settings_title => 'Settings';
+
+  @override
+  String get settings_terms => 'Term and Conditions';
+
+  @override
+  String get settings_rate => 'Rate this app';
+
+  @override
+  String get settings_share_app => 'Share this app';
+
+  @override
+  String settings_share_content(Object android, Object ios) {
+    return 'Check out this app\n\n iOS: $ios \n\n Android: $android';
+  }
 }

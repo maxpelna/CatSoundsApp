@@ -15,13 +15,6 @@ dependencies:
   # Core
   rxdart: ^0.28.0
   collection: any
-  # Network
-  dio: ^5.8.0+1
-  json_annotation: ^4.9.0
-  retrofit: ^4.4.2
-  connectivity_plus: ^6.1.4
-  # Debug View
-  chili_debug_view: ^1.1.0
   # Firebase
   firebase_analytics: ^11.5.0
   firebase_remote_config: ^5.4.5

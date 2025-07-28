@@ -15,8 +15,13 @@ final class AppBloc extends Bloc<AppBlocEvent, AppBlocState> {
     on<StartAppEvent>(_onStartApp);
   }
 
-  void _onStartApp(
+  Future<void> _onStartApp(
     StartAppEvent event,
     Emitter emit,
-  ) => emit(state.copyWith(appFlowState: AuthenticatedState()));
+  ) async {
+    // Await 2 seconds for splash screen to finish.
+    await Future.delayed(Duration(milliseconds: 1200));
+
+    emit(state.copyWith(appFlowState: AuthenticatedState()));
+  }
 }

@@ -1,8 +1,6 @@
 import 'package:cat_sounds/di/model/di_module.dart';
-import 'package:data/connectivity/repository/connectivity_repository_impl.dart';
 import 'package:data/remote_config/repository/remote_config_repository_impl.dart';
 import 'package:data/update/repository/update_repository_impl.dart';
-import 'package:domain/connectivity/repository/connectivity_repository.dart';
 import 'package:domain/platform/repository/platform_repository.dart';
 import 'package:domain/remote_config/repository/remote_config_repository.dart';
 import 'package:domain/update/repository/update_repository.dart';
@@ -22,9 +20,6 @@ final class NetworkModule implements DIModule {
 
   @override
   Future<void> configureDependencies() async {
-    diContainer.registerLazySingleton<ConnectivityRepository>(
-      () => ConnectivityRepositoryImpl(),
-    );
     diContainer.registerLazySingleton<RemoteConfigRepository>(
       () => RemoteConfigRepositoryImpl(
         remoteConfig: _remoteConfig,

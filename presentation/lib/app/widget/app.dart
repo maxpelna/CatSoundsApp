@@ -1,4 +1,3 @@
-import 'package:chili_debug_view/chili_debug_view.dart';
 import 'package:chili_text_scale_factor/chili_text_scale_factor.dart';
 import 'package:domain/analytics/repository/analytics_repository.dart';
 import 'package:domain/locale/repository/locale_repository.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:presentation/analytics/analytics_event_logger.dart';
 import 'package:presentation/app/bloc/app_bloc.dart';
 import 'package:presentation/coordinator/bloc/app_flow_state.dart';
-import 'package:presentation/coordinator/flow/app_flow_router.dart';
 import 'package:presentation/coordinator/flow/app_routes.dart';
 import 'package:presentation/coordinator/widget/app_router_manager.dart';
 import 'package:presentation/design/src/constants/design_system_constants.dart';
@@ -63,11 +61,7 @@ final class _AppState extends State<App> {
                 if (child == null) return emptyWidget;
 
                 return LimitTextScaleFactorWrapper(
-                  child: DebugView(
-                    navigatorKey: rootNavigationKey,
-                    showDebugViewButton: widget.enableDebugView,
-                    app: child,
-                  ),
+                  child: child,
                 );
               },
               title: 'YOUR APP NAME',
@@ -77,6 +71,12 @@ final class _AppState extends State<App> {
                   primaryColor: theme?.colors.base.primary,
                 ),
                 brightness: brightness,
+                pageTransitionsTheme: PageTransitionsTheme(
+                  builders: Map<TargetPlatform, PageTransitionsBuilder>.fromIterable(
+                    TargetPlatform.values,
+                    value: (_) =>  ZoomPageTransitionsBuilder(),
+                  ),
+                ),
               ),
               locale: locale,
               localizationsDelegates: AppLocalizations.localizationsDelegates,

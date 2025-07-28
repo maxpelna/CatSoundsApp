@@ -3,13 +3,13 @@ import 'package:presentation/design/design_src.dart';
 import 'package:presentation/utils/extension/build_context_extension.dart';
 
 final class SoundPadContainer extends StatelessWidget {
-  final int number;
+  final String name;
   final bool isActive;
   final VoidCallback onTap;
 
   const SoundPadContainer({
     super.key,
-    required this.number,
+    required this.name,
     required this.isActive,
     required this.onTap,
   });
@@ -29,7 +29,7 @@ final class SoundPadContainer extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              number.toString(),
+              name,
               style: context.typography.largeTitleBold.copyWith(
                 color: isActive ? Colors.black : Colors.white,
               ),

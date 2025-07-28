@@ -31,14 +31,45 @@ mixin _$SplashRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $homePageRoute =>
-    GoRouteData.$route(path: '/home', factory: _$HomePageRoute._fromState);
+RouteBase get $homePageRoute => GoRouteData.$route(
+  path: '/home',
+
+  factory: _$HomePageRoute._fromState,
+  routes: [
+    GoRouteData.$route(
+      path: 'settings',
+
+      factory: _$SettingsPageRoute._fromState,
+    ),
+  ],
+);
 
 mixin _$HomePageRoute on GoRouteData {
   static HomePageRoute _fromState(GoRouterState state) => const HomePageRoute();
 
   @override
   String get location => GoRouteData.$location('/home');
+
+  @override
+  void go(BuildContext context) => context.go(location);
+
+  @override
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  @override
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  @override
+  void replace(BuildContext context) => context.replace(location);
+}
+
+mixin _$SettingsPageRoute on GoRouteData {
+  static SettingsPageRoute _fromState(GoRouterState state) =>
+      const SettingsPageRoute();
+
+  @override
+  String get location => GoRouteData.$location('/home/settings');
 
   @override
   void go(BuildContext context) => context.go(location);

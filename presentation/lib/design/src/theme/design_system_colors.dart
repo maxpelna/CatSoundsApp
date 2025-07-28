@@ -135,7 +135,7 @@ final class BackgroundColors extends Equatable {
   });
 
   factory BackgroundColors.light() => BackgroundColors(
-        background: const Color(0xFFFFFFF1),
+        background: const Color(0xFFFFFFFF),
         surface: const Color(0xFFA2A2A2),
         onSurface: const Color(0xFFA4A4A4),
         onDarkSurface: const Color(0xFFA8A8A8),

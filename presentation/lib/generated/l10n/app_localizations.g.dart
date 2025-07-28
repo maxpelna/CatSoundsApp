@@ -97,6 +97,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Test in English'**
   String get placeholder;
+
+  /// No description provided for @sound_pad_meow_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Meow'**
+  String get sound_pad_meow_type;
+
+  /// No description provided for @sound_pad_love_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Love'**
+  String get sound_pad_love_type;
+
+  /// No description provided for @sound_pad_anger_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Anger'**
+  String get sound_pad_anger_type;
+
+  /// No description provided for @settings_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings_title;
+
+  /// No description provided for @settings_terms.
+  ///
+  /// In en, this message translates to:
+  /// **'Term and Conditions'**
+  String get settings_terms;
+
+  /// No description provided for @settings_rate.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate this app'**
+  String get settings_rate;
+
+  /// No description provided for @settings_share_app.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this app'**
+  String get settings_share_app;
+
+  /// No description provided for @settings_share_content.
+  ///
+  /// In en, this message translates to:
+  /// **'Check out this app\n\n iOS: {ios} \n\n Android: {android}'**
+  String settings_share_content(Object android, Object ios);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
