@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:presentation/design/design_src.dart';
 import 'package:presentation/design/src/constants/design_system_constants.dart';
 import 'package:presentation/generated/l10n/app_localizations.g.dart';
 import 'package:presentation/utils/extension/build_context_extension.dart';
@@ -16,9 +17,9 @@ final class SettingsPage extends StatelessWidget with UrlLauncher {
     final localization = context.localization;
 
     return Scaffold(
-      backgroundColor: colors.background.onDarkSurface,
+      backgroundColor: colors.background.surface,
       appBar: AppBar(
-        backgroundColor: colors.background.onDarkSurface,
+        backgroundColor: colors.background.surface,
         elevation: 0,
         title: Text(
           localization.settings_title,
@@ -40,7 +41,7 @@ final class SettingsPage extends StatelessWidget with UrlLauncher {
       ),
       body: SafeArea(
         child: Padding(
-          padding: allPadding8,
+          padding: allPadding16,
           child: Column(
             children: [
               hBox8,
@@ -57,6 +58,16 @@ final class SettingsPage extends StatelessWidget with UrlLauncher {
               _SettingsItem(
                 name: localization.settings_share_app,
                 onTap: () => _shareApp(localization),
+              ),
+              Spacer(),
+              GestureDetector(
+                onTap: _openAnimationCreatorWeb,
+                child: Text(
+                  "The animation of cat is done by hicaro.lima",
+                  style: context.typography.subheadRegular.copyWith(
+                    color: colors.text.primaryOnDark,
+                  ),
+                ),
               ),
             ],
           ),
@@ -82,6 +93,10 @@ final class SettingsPage extends StatelessWidget with UrlLauncher {
       ),
     ),
   );
+
+  void _openAnimationCreatorWeb() {
+    openWeb(url: 'https://rive.app/@hicaro.lima');
+  }
 }
 
 final class _SettingsItem extends StatelessWidget {
@@ -101,18 +116,21 @@ final class _SettingsItem extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: colors.background.onSurface,
-          borderRadius: BorderRadius.all(Radius.circular(12.0)),
-        ),
-        child: Padding(
-          padding: hPadding16vPadding8,
-          child: Text(
-            name,
-            style: typography.bodySemiBold.copyWith(
-              color: colors.text.primaryOnDark,
+      child: CsTapBuilder(
+
+        builder: (isTapped) => Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: isTapped ? colors.background.onSurfacePressed : colors.background.onSurface,
+            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          ),
+          child: Padding(
+            padding: hPadding16vPadding20,
+            child: Text(
+              name,
+              style: typography.bodySemiBold.copyWith(
+                color: colors.text.primaryOnDark,
+              ),
             ),
           ),
         ),

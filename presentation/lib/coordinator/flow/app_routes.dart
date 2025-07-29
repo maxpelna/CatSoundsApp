@@ -6,6 +6,7 @@ import 'package:presentation/design/src/route/cs_circle_reveal_clipper.dart';
 import 'package:presentation/feature/home/sound_pad/widget/sound_pad_page.dart';
 import 'package:presentation/feature/settings/widget/settings_page.dart';
 import 'package:presentation/splash/widget/splash_page.dart';
+import 'package:presentation/utils/extension/build_context_extension.dart';
 
 part 'app_routes.g.dart';
 
@@ -37,7 +38,7 @@ final class SettingsPageRoute extends GoRouteData with _$SettingsPageRoute {
   Page<void> buildPage(BuildContext context, GoRouterState state) => CustomTransitionPage(
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var screenSize = MediaQuery.sizeOf(context);
-      final center = Offset(screenSize.width - 40, 40);
+      final center = Offset(screenSize.width - 40, context.topSafeArea + 50);
       final beginRadius = 0.0;
       final endRadius = screenSize.height * 1.2;
 

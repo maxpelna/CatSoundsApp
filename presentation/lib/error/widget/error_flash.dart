@@ -22,7 +22,7 @@ final class ErrorFlash extends StatelessWidget {
       controller: controller,
       position: FlashPosition.top,
       dismissDirections: const [FlashDismissDirection.vertical],
-      backgroundColor: bgColors.onDarkSurface.withValues(alpha: 0.01),
+      backgroundColor: bgColors.onSurfacePressed.withValues(alpha: 0.01),
       shadowColor: Colors.transparent,
       // Not relevant.
       // ignore: no-equal-arguments
