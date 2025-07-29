@@ -24,7 +24,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get settings_title => 'Settings';
 
   @override
-  String get settings_terms => 'Term and Conditions';
+  String get settings_terms => 'Terms and Conditions';
+
+  @override
+  String get settings_policy => 'Privacy Policy';
 
   @override
   String get settings_rate => 'Rate this app';
@@ -36,4 +39,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String settings_share_content(Object android, Object ios) {
     return 'Check out this app\n\n iOS: $ios \n\n Android: $android';
   }
+
+  @override
+  String get settings_animator_credit_first => 'The animation of cat is done by ';
+
+  @override
+  String get settings_animator_credit_second => 'hicaro.lima';
 }

@@ -1,5 +1,10 @@
+// ignore_for_file: avoid-missing-enum-constant-in-map
+
 import 'dart:async';
 
+import 'package:domain/analytics/model/analytics_event_type.dart';
+import 'package:domain/analytics/model/analytics_log_data.dart';
+import 'package:domain/analytics/model/analytics_parameter_key_type.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +13,9 @@ import 'package:just_audio/just_audio.dart';
 import 'package:presentation/coordinator/flow/app_routes.dart';
 import 'package:presentation/design/src/constants/design_system_constants.dart';
 import 'package:presentation/feature/home/sound_pad/model/sound_item.dart';
+import 'package:presentation/feature/home/sound_pad/model/sound_type.dart';
 import 'package:presentation/feature/home/sound_pad/widget/sound_pad_container.dart';
+import 'package:presentation/utils/extension/analytics_extension.dart';
 import 'package:presentation/utils/extension/build_context_extension.dart';
 import 'package:rive/rive.dart';
 
@@ -73,7 +80,7 @@ final class _SoundPadPageState extends State<SoundPadPage> {
                     top: 16,
                     right: 16,
                     child: GestureDetector(
-                      onTap: () => context.go(SettingsPageRoute().location),
+                      onTap: _openSettings,
                       child: Icon(
                         Icons.settings,
                         size: 32,
@@ -93,16 +100,7 @@ final class _SoundPadPageState extends State<SoundPadPage> {
 
                 children: [
                   CupertinoSlidingSegmentedControl<int>(
-                    onValueChanged: (value) {
-                      setState(() {
-                        _selectedSegmentIndex = value ?? 0;
-                      });
-                      _pageController.animateToPage(
-                        value ?? 0,
-                        duration: duration200Milliseconds,
-                        curve: Curves.easeInOut,
-                      );
-                    },
+                    onValueChanged: _switchSoundType,
                     groupValue: _selectedSegmentIndex,
                     thumbColor: CupertinoColors.activeGreen,
                     padding: EdgeInsets.all(8),
@@ -200,20 +198,49 @@ final class _SoundPadPageState extends State<SoundPadPage> {
     super.dispose();
   }
 
-  List<SoundItem> get _itemsBasedOnSegmentedControl {
-    if (_selectedSegmentIndex == 0) {
-      return SoundItem.meowSounds;
-    } else if (_selectedSegmentIndex == 1) {
-      return SoundItem.loveSounds;
-    }
+  void _openSettings() {
+    context.logEvent(
+      AnalyticsLogData(
+        event: AnalyticsEventType.tappedOnSettings,
+      ),
+    );
+    context.go(SettingsPageRoute().location);
+  }
 
-    return SoundItem.angerSounds;
+  void _switchSoundType(int? value) {
+    final soundTypeId = value ?? 0;
+    final soundType = SoundType.fromId(soundTypeId);
+    context.logEvent(
+      AnalyticsLogData(
+        event: AnalyticsEventType.switchSoundType,
+        parameters: {
+          AnalyticsParameterKeyType.soundType: soundType.name,
+        },
+      ),
+    );
+
+    setState(() {
+      _selectedSegmentIndex = soundTypeId;
+    });
+    _pageController.animateToPage(
+      soundTypeId,
+      duration: duration200Milliseconds,
+      curve: Curves.easeInOut,
+    );
   }
 
   void _playSound({
     required SoundItem item,
   }) async {
     final audioAssets = context.assets.audio;
+    context.logEvent(
+      AnalyticsLogData(
+        event: AnalyticsEventType.playSound,
+        parameters: {
+          AnalyticsParameterKeyType.soundId: item.id,
+        },
+      ),
+    );
 
     setState(() {
       _controller.isActive = true;

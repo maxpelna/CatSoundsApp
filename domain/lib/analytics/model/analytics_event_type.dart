@@ -1,5 +1,12 @@
 enum AnalyticsEventType {
-  placeholder('placeholder');
+  playSound('playSound'),
+  switchSoundType('switchSoundType'),
+  tappedOnSettings('tappedOnSettings'),
+  tappedOnTerms('tappedOnTerms'),
+  tappedOnPolicy('tappedOnPolicy'),
+  tappedOnRateApp('tappedOnRateApp'),
+  tappedOnShareApp('tappedOnShareApp'),
+  tappedOnAnimatorCredit('tappedOnAnimatorCredit');
 
   final String name;
 

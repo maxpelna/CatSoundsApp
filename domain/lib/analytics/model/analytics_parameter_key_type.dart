@@ -1,5 +1,6 @@
 enum AnalyticsParameterKeyType {
-  elementId('element_id');
+  soundType('soundType'),
+  soundId('soundId');
 
   final String name;
 

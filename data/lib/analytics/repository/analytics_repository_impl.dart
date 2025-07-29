@@ -13,7 +13,7 @@ final class AnalyticsRepositoryImpl implements AnalyticsRepository {
   void logEvent(AnalyticsLogData log) => _analytics.logEvent(
         name: log.event.name,
         parameters: log.parameters?.map(
-          (key, value) => MapEntry(key.name, value.value),
+          (key, value) => MapEntry(key.name, value),
         ),
       );
 }

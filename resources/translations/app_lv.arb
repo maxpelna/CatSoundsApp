@@ -9,8 +9,11 @@
 
     "@SETTINGS_": {},
     "settings_title": "Settings",
-    "settings_terms": "Term and Conditions",
+    "settings_terms": "Terms and Conditions",
+    "settings_policy": "Privacy Policy",
     "settings_rate": "Rate this app",
     "settings_share_app": "Share this app",
-    "settings_share_content": "Check out this app\n\n iOS: {ios} \n\n Android: {android}"
+    "settings_share_content": "Check out this app\n\n iOS: {ios} \n\n Android: {android}",
+    "settings_animator_credit_first": "The animation of cat is done by ",
+    "settings_animator_credit_second": "hicaro.lima"
 }

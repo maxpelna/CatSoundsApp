@@ -125,8 +125,14 @@ abstract class AppLocalizations {
   /// No description provided for @settings_terms.
   ///
   /// In en, this message translates to:
-  /// **'Term and Conditions'**
+  /// **'Terms and Conditions'**
   String get settings_terms;
+
+  /// No description provided for @settings_policy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get settings_policy;
 
   /// No description provided for @settings_rate.
   ///
@@ -145,6 +151,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Check out this app\n\n iOS: {ios} \n\n Android: {android}'**
   String settings_share_content(Object android, Object ios);
+
+  /// No description provided for @settings_animator_credit_first.
+  ///
+  /// In en, this message translates to:
+  /// **'The animation of cat is done by '**
+  String get settings_animator_credit_first;
+
+  /// No description provided for @settings_animator_credit_second.
+  ///
+  /// In en, this message translates to:
+  /// **'hicaro.lima'**
+  String get settings_animator_credit_second;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

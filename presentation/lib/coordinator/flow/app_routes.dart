@@ -38,7 +38,7 @@ final class SettingsPageRoute extends GoRouteData with _$SettingsPageRoute {
   Page<void> buildPage(BuildContext context, GoRouterState state) => CustomTransitionPage(
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var screenSize = MediaQuery.sizeOf(context);
-      final center = Offset(screenSize.width - 40, context.topSafeArea + 50);
+      final center = Offset(screenSize.width - 32, context.topSafeArea + 32);
       final beginRadius = 0.0;
       final endRadius = screenSize.height * 1.2;
 
