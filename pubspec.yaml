@@ -57,9 +57,7 @@ dependencies:
   path_provider: any
   package_info_plus: ^8.3.0
   version: ^3.0.2
-  waveform_flutter: ^1.2.0
   just_audio: ^0.10.4
-  audio_analyzer: ^0.1.0
   in_app_review: ^2.0.10
   share_plus: ^11.0.0
   # UI
@@ -67,8 +65,8 @@ dependencies:
   fluttertoast: ^8.2.12
   flash: ^3.1.1
   rive: ^0.13.20
-  wave_blob: ^1.0.5
   lottie: ^3.3.1
+  custom_sliding_segmented_control: ^1.8.5
 
 dev_dependencies:
   flutter_test:
@@ -105,9 +103,8 @@ flutter_native_splash:
   # flutter pub run flutter_native_splash:create
   # To restore Flutter's default white splash screen, run the following command in the terminal:
   # flutter pub run flutter_native_splash:remove
-  color: "#FFFFFF"
-  color_dark: "#FFFFFF"
-  image: "resources/splash/splash.png"
+  color: "#F8E6C7"
+  color_dark: "#F8E6C7"
   android: true
   ios: true
   fullscreen: true

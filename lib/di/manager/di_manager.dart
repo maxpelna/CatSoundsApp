@@ -1,6 +1,5 @@
 import 'package:cat_sounds/di/model/di_module.dart';
 import 'package:cat_sounds/di/module/core_module.dart';
-import 'package:cat_sounds/di/module/late_module.dart';
 import 'package:cat_sounds/di/module/network_module.dart';
 import 'package:cat_sounds/di/module/storage_module.dart';
 import 'package:cat_sounds/env/env_config.dart';
@@ -27,13 +26,11 @@ Future<void> configureDependencies() async {
     remoteConfig: remoteConfig,
     isDevEnv: isDevEnv,
   );
-  const lateModule = LateModule();
 
   final diModules = <DIModule>[
     coreModule,
     storageModule,
     networkModule,
-    lateModule,
   ];
 
   for (final module in diModules) {

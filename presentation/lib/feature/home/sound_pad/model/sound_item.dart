@@ -9,44 +9,44 @@ final class SoundItem extends Equatable {
   // All meow items.
   // ignore: avoid-global-state
   static List<SoundItem> meowSounds = [
-    SoundItem(id: 1, type: SoundType.meow),
-    SoundItem(id: 2, type: SoundType.meow),
     SoundItem(id: 3, type: SoundType.meow),
-    SoundItem(id: 4, type: SoundType.meow),
-    SoundItem(id: 5, type: SoundType.meow),
+    SoundItem(id: 2, type: SoundType.meow),
+    SoundItem(id: 1, type: SoundType.meow),
     SoundItem(id: 6, type: SoundType.meow),
-    SoundItem(id: 7, type: SoundType.meow),
-    SoundItem(id: 8, type: SoundType.meow),
+    SoundItem(id: 5, type: SoundType.meow),
+    SoundItem(id: 4, type: SoundType.meow),
     SoundItem(id: 9, type: SoundType.meow),
-  ];
+    SoundItem(id: 8, type: SoundType.meow),
+    SoundItem(id: 7, type: SoundType.meow),
+  ].reversed.toList();
 
   // All love items.
   // ignore: avoid-global-state
   static List<SoundItem> loveSounds = [
-    SoundItem(id: 11, type: SoundType.love),
-    SoundItem(id: 12, type: SoundType.love),
     SoundItem(id: 13, type: SoundType.love),
-    SoundItem(id: 14, type: SoundType.love),
-    SoundItem(id: 15, type: SoundType.love),
+    SoundItem(id: 12, type: SoundType.love),
+    SoundItem(id: 11, type: SoundType.love),
     SoundItem(id: 16, type: SoundType.love),
-    SoundItem(id: 17, type: SoundType.love),
-    SoundItem(id: 18, type: SoundType.love),
+    SoundItem(id: 15, type: SoundType.love),
+    SoundItem(id: 14, type: SoundType.love),
     SoundItem(id: 19, type: SoundType.love),
-  ];
+    SoundItem(id: 18, type: SoundType.love),
+    SoundItem(id: 17, type: SoundType.love),
+  ].reversed.toList();
 
   // All anger items.
   // ignore: avoid-global-state
   static List<SoundItem> angerSounds = [
-    SoundItem(id: 21, type: SoundType.anger),
-    SoundItem(id: 22, type: SoundType.anger),
     SoundItem(id: 23, type: SoundType.anger),
-    SoundItem(id: 24, type: SoundType.anger),
-    SoundItem(id: 25, type: SoundType.anger),
+    SoundItem(id: 22, type: SoundType.anger),
+    SoundItem(id: 21, type: SoundType.anger),
     SoundItem(id: 26, type: SoundType.anger),
-    SoundItem(id: 27, type: SoundType.anger),
-    SoundItem(id: 28, type: SoundType.anger),
+    SoundItem(id: 25, type: SoundType.anger),
+    SoundItem(id: 24, type: SoundType.anger),
     SoundItem(id: 29, type: SoundType.anger),
-  ];
+    SoundItem(id: 28, type: SoundType.anger),
+    SoundItem(id: 27, type: SoundType.anger),
+  ].reversed.toList();
 
   const SoundItem({
     required this.id,

@@ -57,14 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.13.0"
-  audio_analyzer:
-    dependency: "direct main"
-    description:
-      name: audio_analyzer
-      sha256: "1cf0eef18cce3b659b5fc1a5f7a669d614f2324c1b3b6cad06525244b8b81eb7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
   audio_session:
     dependency: transitive
     description:
@@ -282,6 +274,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  custom_sliding_segmented_control:
+    dependency: "direct main"
+    description:
+      name: custom_sliding_segmented_control
+      sha256: bc747b1500284bff36fc8c61774c9a3ca35c1dca4d570141c8a2569b4f984bf3
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.8.5"
   dart_style:
     dependency: transitive
     description:
@@ -1505,22 +1505,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.2"
-  wave_blob:
-    dependency: "direct main"
-    description:
-      name: wave_blob
-      sha256: "2855f7e6f812c628b2e7c74ec864c27c864a08a4fa9b4f62280a6150806703d8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.5"
-  waveform_flutter:
-    dependency: "direct main"
-    description:
-      name: waveform_flutter
-      sha256: "08c9e98d4cf119428d8b3c083ed42c11c468623eaffdf30420ae38e36662922a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   web:
     dependency: transitive
     description:

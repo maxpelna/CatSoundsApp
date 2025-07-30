@@ -7,12 +7,12 @@ final class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    backgroundColor: context.colors.background.background,
     body: Center(
       child: Lottie.asset(
         context.assets.animations.splash,
         repeat: true,
       ),
     ),
+    backgroundColor: context.colors.background.surface,
   );
 }

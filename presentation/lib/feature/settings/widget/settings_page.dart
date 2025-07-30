@@ -2,10 +2,10 @@ import 'package:domain/analytics/model/analytics_event_type.dart';
 import 'package:domain/analytics/model/analytics_log_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
 import 'package:in_app_review/in_app_review.dart';
 import 'package:lottie/lottie.dart';
 import 'package:presentation/design/design_src.dart';
+import 'package:presentation/feature/settings/widget/settings_item.dart';
 import 'package:presentation/generated/l10n/app_localizations.g.dart';
 import 'package:presentation/utils/extension/analytics_extension.dart';
 import 'package:presentation/utils/extension/build_context_extension.dart';
@@ -26,95 +26,99 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
     final colors = context.colors;
     final typography = context.typography;
     final localization = context.localization;
+    final secondaryTextColor = colors.text.secondaryOnLight;
+    final thanksColor = colors.text.tertiaryOnLight;
+    final thanksTextStyle = typography.subheadSemiBold.copyWith(
+      color: thanksColor,
+    );
 
     return Scaffold(
-      backgroundColor: colors.background.surface,
       body: SafeArea(
-        child: Padding(
-          padding: allPadding16,
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    localization.settings_title,
-                    style: context.typography.largeTitleBold.copyWith(
-                      color: colors.text.primaryOnDark,
-                    ),
+        child: Column(
+          children: [
+            hBox20,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                wBox16,
+                Text(
+                  localization.settings_title,
+                  style: context.typography.largeTitleBold.copyWith(
+                    color: secondaryTextColor,
                   ),
-                  Spacer(),
-                  GestureDetector(
-                    onTap: _close,
-                    child: Icon(
-                      Icons.close,
-                      size: 32,
-                      color: Colors.black.withValues(alpha: 0.8),
-                    ),
-                  ),
-                ],
-              ),
-              hBox20,
-              _SettingsItem(
-                name: localization.settings_terms,
-                onTap: _openTermsAndConditions,
-              ),
-              hBox8,
-              _SettingsItem(
-                name: localization.settings_policy,
-                onTap: _openPrivacyPolicy,
-              ),
-              hBox8,
-              _SettingsItem(
-                name: localization.settings_rate,
-                onTap: _rateApp,
-              ),
-              hBox8,
-              _SettingsItem(
-                name: localization.settings_share_app,
-                onTap: () => _shareApp(localization),
-              ),
-              Spacer(),
-              Center(
-                child: Lottie.asset(
-                  context.assets.animations.thanks,
-                  width: context.totalWidth / 4,
                 ),
+                const Spacer(),
+                CsIconButton(
+                  icon: Icons.close,
+                  color: secondaryTextColor,
+                  onPressed: _close,
+                ),
+                wBox8,
+              ],
+            ),
+            hBox20,
+            SettingsItem(
+              name: localization.settings_terms,
+              icon: Icons.account_balance,
+              onTap: _openTermsAndConditions,
+            ),
+            hBox8,
+            SettingsItem(
+              name: localization.settings_policy,
+              icon: Icons.privacy_tip_outlined,
+              onTap: _openPrivacyPolicy,
+            ),
+            hBox8,
+            SettingsItem(
+              name: localization.settings_rate,
+              icon: Icons.star,
+              onTap: _rateApp,
+            ),
+            hBox8,
+            SettingsItem(
+              name: localization.settings_share_app,
+              icon: Icons.ios_share,
+              onTap: () => _shareApp(localization),
+            ),
+            const Spacer(),
+            Center(
+              child: Lottie.asset(
+                context.assets.animations.thanks,
+                width: context.totalWidth / 4,
               ),
-              Text.rich(
+            ),
+            Padding(
+              padding: allPadding16,
+              child: Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
                       text: localization.settings_animator_credit_first,
-                      style: typography.subheadSemiBold.copyWith(
-                        color: colors.text.secondaryOnLight,
-                      ),
+                      style: thanksTextStyle,
                     ),
                     WidgetSpan(
                       alignment: PlaceholderAlignment.baseline,
                       baseline: TextBaseline.alphabetic,
                       child: GestureDetector(
-                        behavior: HitTestBehavior.translucent,
                         onTap: _openAnimationCreatorWeb,
+                        behavior: HitTestBehavior.translucent,
                         child: Stack(
                           alignment: Alignment.bottomLeft,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 2), // padding between text and underline
+                              padding: bottomPadding8,
                               child: Text(
                                 localization.settings_animator_credit_second,
-                                style: typography.subheadSemiBold.copyWith(
-                                  color: colors.text.secondaryOnLight,
-                                ),
+                                style: thanksTextStyle,
                               ),
                             ),
                             Positioned(
-                              bottom: 0,
                               left: 0,
                               right: 0,
+                              bottom: 0,
                               child: Container(
+                                color: thanksColor,
                                 height: 1,
-                                color: colors.text.secondaryOnLight,
                               ),
                             ),
                           ],
@@ -124,10 +128,11 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
+      backgroundColor: colors.background.background,
     );
   }
 
@@ -176,44 +181,5 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnAnimatorCredit));
     HapticFeedback.lightImpact();
     openWeb(url: AppUrls.animatorCreatorLink);
-  }
-}
-
-final class _SettingsItem extends StatelessWidget {
-  final String name;
-  final VoidCallback onTap;
-
-  const _SettingsItem({
-    required this.name,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.colors;
-    final typography = context.typography;
-
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: onTap,
-      child: CsTapBuilder(
-        builder: (isTapped) => Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: isTapped ? colors.background.onSurfacePressed : colors.background.onSurface,
-            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-          ),
-          child: Padding(
-            padding: hPadding16vPadding20,
-            child: Text(
-              name,
-              style: typography.bodySemiBold.copyWith(
-                color: colors.text.primaryOnDark,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }

@@ -1,6 +1,4 @@
 PODS:
-  - audio_analyzer (0.0.1):
-    - Flutter
   - audio_session (0.0.1):
     - Flutter
   - Firebase/Analytics (11.13.0):
@@ -178,7 +176,6 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - audio_analyzer (from `.symlinks/plugins/audio_analyzer/ios`)
   - audio_session (from `.symlinks/plugins/audio_session/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -219,8 +216,6 @@ SPEC REPOS:
     - PromisesSwift
 
 EXTERNAL SOURCES:
-  audio_analyzer:
-    :path: ".symlinks/plugins/audio_analyzer/ios"
   audio_session:
     :path: ".symlinks/plugins/audio_session/ios"
   firebase_analytics:
@@ -257,7 +252,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  audio_analyzer: fa60d2132d851a00c9555c16f7a94e735d478691
   audio_session: 9bb7f6c970f21241b19f5a3658097ae459681ba0
   Firebase: 3435bc66b4d494c2f22c79fd3aae4c1db6662327
   firebase_analytics: 4af7b20cf0c2da4e0473117e01a69507db8d7c16

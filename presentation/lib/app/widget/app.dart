@@ -17,18 +17,16 @@ import 'package:presentation/locale/app_locale_manager.dart';
 import 'package:presentation/theme/app_theme_manager.dart';
 
 final class App extends StatefulWidget {
-  final bool enableDebugView;
-
-  const App._({required this.enableDebugView});
+  const App._();
 
   @override
   State<App> createState() => _AppState();
 
-  static Widget withBloc({
-    required bool enableDebugView,
-  }) => BlocProvider(
-    create: (_) => AppBloc(),
-    child: App._(enableDebugView: enableDebugView),
+  static Widget withBloc() => BlocProvider(
+    create: (_) => AppBloc(
+      splashDuration: duration1800Milliseconds,
+    ),
+    child: App._(),
   );
 }
 
@@ -64,19 +62,19 @@ final class _AppState extends State<App> {
                   child: child,
                 );
               },
-              title: 'YOUR APP NAME',
+              title: 'Meowpad',
               theme: ThemeData(
                 cupertinoOverrideTheme: CupertinoThemeData(
                   brightness: brightness,
                   primaryColor: theme?.colors.base.primary,
                 ),
-                brightness: brightness,
                 pageTransitionsTheme: PageTransitionsTheme(
                   builders: Map<TargetPlatform, PageTransitionsBuilder>.fromIterable(
                     TargetPlatform.values,
-                    value: (_) =>  ZoomPageTransitionsBuilder(),
+                    value: (_) => ZoomPageTransitionsBuilder(),
                   ),
                 ),
+                brightness: brightness,
               ),
               locale: locale,
               localizationsDelegates: AppLocalizations.localizationsDelegates,

@@ -289,7 +289,6 @@ dart_code_metrics:
     - prefer-using-list-view
     - avoid-stateless-widget-initialized-fields
     - avoid-empty-setstate
-    - avoid-border-all
     - dispose-fields:
         ignore-blocs: true
     - avoid-unnecessary-stateful-widgets

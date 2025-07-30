@@ -24,7 +24,6 @@ final class StorageModule implements DIModule {
     final sharedPrefs = await SharedPreferences.getInstance();
     final sharedPrefsStorage = SharedPreferencesStorage(sharedPrefs);
 
-    // TODO: Use secure storage for user sensitive data.
     final secureKeyValueStorage = SecureStorage(
       const FlutterSecureStorage(),
       onError: (ex, st) => Fimber.e(

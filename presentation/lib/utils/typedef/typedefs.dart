@@ -3,6 +3,7 @@ import 'package:domain/theme/model/app_theme_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:presentation/design/src/theme/design_system_theme_data.dart';
+import 'package:presentation/feature/home/sound_pad/model/sound_item.dart';
 
 // MARK: Callbacks.
 
@@ -19,6 +20,8 @@ typedef AppThemeModeCallback = Function(AppThemeMode mode);
 typedef AppLanguageCallback = Function(AppLanguage language);
 
 typedef LocaleCallback = Function(Locale locale);
+
+typedef SoundItemCallback = Function(SoundItem item);
 
 // MARK: Builders.
 

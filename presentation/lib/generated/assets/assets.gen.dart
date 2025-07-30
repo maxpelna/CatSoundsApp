@@ -36,9 +36,6 @@ class $ResourcesAssetsGen {
 class $ResourcesAssetsAnimationsGen {
   const $ResourcesAssetsAnimationsGen();
 
-  /// File path: resources/assets/animations/finger_slide.json
-  String get fingerSlide => 'resources/assets/animations/finger_slide.json';
-
   /// File path: resources/assets/animations/meow.riv
   String get meow => 'resources/assets/animations/meow.riv';
 
@@ -49,7 +46,7 @@ class $ResourcesAssetsAnimationsGen {
   String get thanks => 'resources/assets/animations/thanks.json';
 
   /// List of all assets
-  List<String> get values => [fingerSlide, meow, splash, thanks];
+  List<String> get values => [meow, splash, thanks];
 }
 
 class $ResourcesAssetsAudioGen {
@@ -171,22 +168,28 @@ class $ResourcesAssetsAudioGen {
 class $ResourcesAssetsIconsGen {
   const $ResourcesAssetsIconsGen();
 
-  /// File path: resources/assets/icons/ic_placeholder.svg
-  String get icPlaceholder => 'resources/assets/icons/ic_placeholder.svg';
+  /// File path: resources/assets/icons/ic_body.svg
+  String get icBody => 'resources/assets/icons/ic_body.svg';
+
+  /// File path: resources/assets/icons/ic_face.svg
+  String get icFace => 'resources/assets/icons/ic_face.svg';
+
+  /// File path: resources/assets/icons/ic_paw.svg
+  String get icPaw => 'resources/assets/icons/ic_paw.svg';
 
   /// List of all assets
-  List<String> get values => [icPlaceholder];
+  List<String> get values => [icBody, icFace, icPaw];
 }
 
 class $ResourcesAssetsImagesGen {
   const $ResourcesAssetsImagesGen();
 
-  /// File path: resources/assets/images/image_placeholder.png
-  AssetGenImage get imagePlaceholder =>
-      const AssetGenImage('resources/assets/images/image_placeholder.png');
+  /// File path: resources/assets/images/background.png
+  AssetGenImage get background =>
+      const AssetGenImage('resources/assets/images/background.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [imagePlaceholder];
+  List<AssetGenImage> get values => [background];
 }
 
 class Assets {

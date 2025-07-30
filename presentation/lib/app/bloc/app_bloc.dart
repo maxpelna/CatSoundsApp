@@ -6,8 +6,11 @@ part 'app_bloc_event.dart';
 part 'app_bloc_state.dart';
 
 final class AppBloc extends Bloc<AppBlocEvent, AppBlocState> {
-  AppBloc()
-    : super(
+  final Duration _splashDuration;
+
+  AppBloc({required Duration splashDuration})
+    : _splashDuration = splashDuration,
+      super(
         const AppBlocState(
           appFlowState: AppLoadingState(),
         ),
@@ -19,8 +22,7 @@ final class AppBloc extends Bloc<AppBlocEvent, AppBlocState> {
     StartAppEvent event,
     Emitter emit,
   ) async {
-    // Await 2 seconds for splash screen to finish.
-    await Future.delayed(Duration(milliseconds: 1200));
+    await Future.delayed(_splashDuration);
 
     emit(state.copyWith(appFlowState: AuthenticatedState()));
   }
