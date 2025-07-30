@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:lottie/lottie.dart';
 import 'package:presentation/coordinator/flow/app_routes.dart';
 import 'package:presentation/design/src/constants/design_system_constants.dart';
 import 'package:presentation/feature/home/sound_pad/model/sound_item.dart';
@@ -35,6 +36,7 @@ final class _SoundPadPageState extends State<SoundPadPage> {
   var _amplitude = 0;
   var _tickIndex = 0;
   var _selectedSegmentIndex = 0;
+  var _playTutorial = false;
 
   Timer? _tickTimer;
 
@@ -76,16 +78,40 @@ final class _SoundPadPageState extends State<SoundPadPage> {
                       isTouchScrollEnabled: true,
                     ),
                   ),
+                  if (_playTutorial)
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      child: Lottie.asset(
+                        context.assets.animations.fingerSlide,
+                        width: context.totalWidth / 2.5,
+                        height: context.totalHeight / 2.5,
+                      ),
+                    ),
                   Positioned(
                     top: 16,
                     right: 16,
-                    child: GestureDetector(
-                      onTap: _openSettings,
-                      child: Icon(
-                        Icons.settings,
-                        size: 32,
-                        color: Colors.black.withValues(alpha: 0.8),
-                      ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        GestureDetector(
+                          onTap: _playTutorialAnimation,
+                          child: Icon(
+                            Icons.info_outline,
+                            size: 32,
+                            color: Colors.black.withValues(alpha: 0.8),
+                          ),
+                        ),
+                        wBox16,
+                        GestureDetector(
+                          onTap: _openSettings,
+                          child: Icon(
+                            Icons.settings,
+                            size: 32,
+                            color: Colors.black.withValues(alpha: 0.8),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -204,12 +230,31 @@ final class _SoundPadPageState extends State<SoundPadPage> {
         event: AnalyticsEventType.tappedOnSettings,
       ),
     );
+    HapticFeedback.lightImpact();
     context.go(SettingsPageRoute().location);
+  }
+
+  void _playTutorialAnimation() async {
+    if (_playTutorial) return;
+
+    setState(() {
+      _playTutorial = true;
+    });
+
+    await HapticFeedback.lightImpact();
+    await Future.delayed(Duration(milliseconds: 2600));
+
+    if (mounted) {
+      setState(() {
+        _playTutorial = false;
+      });
+    }
   }
 
   void _switchSoundType(int? value) {
     final soundTypeId = value ?? 0;
     final soundType = SoundType.fromId(soundTypeId);
+    HapticFeedback.lightImpact();
     context.logEvent(
       AnalyticsLogData(
         event: AnalyticsEventType.switchSoundType,

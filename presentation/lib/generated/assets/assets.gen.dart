@@ -36,14 +36,20 @@ class $ResourcesAssetsGen {
 class $ResourcesAssetsAnimationsGen {
   const $ResourcesAssetsAnimationsGen();
 
+  /// File path: resources/assets/animations/finger_slide.json
+  String get fingerSlide => 'resources/assets/animations/finger_slide.json';
+
   /// File path: resources/assets/animations/meow.riv
   String get meow => 'resources/assets/animations/meow.riv';
 
   /// File path: resources/assets/animations/splash.json
   String get splash => 'resources/assets/animations/splash.json';
 
+  /// File path: resources/assets/animations/thanks.json
+  String get thanks => 'resources/assets/animations/thanks.json';
+
   /// List of all assets
-  List<String> get values => [meow, splash];
+  List<String> get values => [fingerSlide, meow, splash, thanks];
 }
 
 class $ResourcesAssetsAudioGen {

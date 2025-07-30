@@ -1,8 +1,10 @@
 import 'package:domain/analytics/model/analytics_event_type.dart';
 import 'package:domain/analytics/model/analytics_log_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:lottie/lottie.dart';
 import 'package:presentation/design/design_src.dart';
 import 'package:presentation/generated/l10n/app_localizations.g.dart';
 import 'package:presentation/utils/extension/analytics_extension.dart';
@@ -43,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
                   ),
                   Spacer(),
                   GestureDetector(
-                    onTap: () => context.pop(),
+                    onTap: _close,
                     child: Icon(
                       Icons.close,
                       size: 32,
@@ -73,6 +75,12 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
                 onTap: () => _shareApp(localization),
               ),
               Spacer(),
+              Center(
+                child: Lottie.asset(
+                  context.assets.animations.thanks,
+                  width: context.totalWidth / 4,
+                ),
+              ),
               Text.rich(
                 TextSpan(
                   children: [
@@ -123,19 +131,27 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
     );
   }
 
+  void _close() {
+    HapticFeedback.lightImpact();
+    Navigator.of(context).pop();
+  }
+
   void _openTermsAndConditions() {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnTerms));
+    HapticFeedback.lightImpact();
     openWeb(url: AppUrls.terms);
   }
 
   void _openPrivacyPolicy() {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnPolicy));
+    HapticFeedback.lightImpact();
     openWeb(url: AppUrls.privacyPolicy);
   }
 
   void _rateApp() async {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnRateApp));
 
+    await HapticFeedback.lightImpact();
     final inAppReview = InAppReview.instance;
     if (await inAppReview.isAvailable()) {
       await inAppReview.requestReview();
@@ -144,6 +160,7 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
 
   void _shareApp(AppLocalizations localization) {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnShareApp));
+    HapticFeedback.lightImpact();
 
     SharePlus.instance.share(
       ShareParams(
@@ -157,6 +174,7 @@ class _SettingsPageState extends State<SettingsPage> with UrlLauncher {
 
   void _openAnimationCreatorWeb() {
     context.logEvent(AnalyticsLogData(event: AnalyticsEventType.tappedOnAnimatorCredit));
+    HapticFeedback.lightImpact();
     openWeb(url: AppUrls.animatorCreatorLink);
   }
 }
