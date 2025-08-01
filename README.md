@@ -1,8 +1,8 @@
-# {Mobile app}
+# Meowpad
 
 ## Environment
 
-To build this app use Flutter version 3.29.3
+To build this app use Flutter version 3.32.7
 
 ## Architecture
 
@@ -10,22 +10,6 @@ Project is following Clean architecture with 3 layers: data, domain, presentatio
 Each feature should have their own coordinator (flow), e.g. authorization, settings, main...
 Root folder `lib` is an entry point where all dependencies are registered to DI container.
 Presentation layer's state management tool is BLoC.
-
-## Building-time parameters
-
-- `API_BASE_URL` - String, base URL for REST API endpoints
-- `ENABLE_DEBUG_VIEW` - bool, enable flutter debug view tool
-- `IS_DEV_ENV` - bool, enable console logging
-
-In order to run prod app in in Android studio go to Run -> Edit Configurations -> Additional arguments
-and add all keys.
-
-```
---release
---dart-define=API_BASE_URL=https://
---dart-define=ENABLE_DEBUG_VIEW=false
---dart-define=IS_DEV_ENV=false
-```
 
 ## Clean app & sync dependencies:
 
