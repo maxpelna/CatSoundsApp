@@ -1,6 +1,6 @@
 # Meowpad
 
-<video src="https://github.com/user-attachments/assets/e611f570-701c-4a2d-9053-207e2a7a9920" width="352" height="720"></video>
+<video src="https://github.com/user-attachments/assets/a3410712-8b84-4bce-98fa-2a3ac942d4f2" width="352" height="720"></video>
 
 ## Environment
 
