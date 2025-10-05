@@ -2,7 +2,7 @@
 
 ## Environment
 
-To build this app use Flutter version 3.32.7
+To build this app use Flutter version 3.35.5
 
 ## Architecture
 
